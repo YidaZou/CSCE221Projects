@@ -26,12 +26,17 @@ int main () {
   }
 
   //d
+  cout << "d:" << endl;
   //reallocating memory
   numbersPointer = (int *)realloc(numbersPointer, 12*sizeof(int));
   //adding more integers
-  (numbersPointer + 8) = 768;
-  (numbersPointer + 9) = 765;
-  (numbersPointer + 10) = 92034;
-  (numbersPointer + 11) = 65789;
+  *(numbersPointer + 8) = 768;
+  *(numbersPointer + 9) = 765;
+  *(numbersPointer + 10) = 92034;
+  *(numbersPointer + 11) = 65789;
+  //printing the numbers
+  for(int i=0; i<12; i++){
+    cout << *(numbersPointer + i) << endl;
+  }
   return 0;
 }

@@ -37,17 +37,36 @@ int main () {
    //e
    //inserting a number into beginning of vector
    numbers.insert(numbers.begin(), 89748);
+   //printing vector
+   for(int i=0; i<numbers.size(); i++){
+     cout << numbers.at(i) << endl;
+   }
 
    //f
    //inserting a number into beginning of vector
    //emplace doesn't produce a copy of object
    numbers.emplace(numbers.begin(), 50000);
-
+   //printing vector
+   for(int i=0; i<numbers.size(); i++){
+     cout << numbers.at(i) << endl;
+   }
+   
    //g
    //inserting a number at the end of vector
    //emplace doesn't produce a copy of object
    numbers.emplace_back(78);
    cout << "g" << endl;
+   //printing vector
+   for(int i=0; i<numbers.size(); i++){
+     cout << numbers.at(i) << endl;
+   }
+
+   //h
+   numbers.emplace(numbers.begin()+1, 20);
+   numbers.emplace(numbers.begin()+3, 20);
+   numbers.emplace(numbers.begin()+6, 20);
+   numbers.pop_back();
+   cout << "h" << endl;
    //printing vector
    for(int i=0; i<numbers.size(); i++){
      cout << numbers.at(i) << endl;
