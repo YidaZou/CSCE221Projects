@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+
 //cube_list struct
 struct cube_list {
   int num;
@@ -36,15 +37,27 @@ void insertMid(int newNum) {
   struct cube_list* pointer1 = head;
   struct cube_list* pointer2 = head;
   //find middle
-  while (pointer1 != NULL) {
+  while (pointer2 != NULL) {
     pointer1 = pointer1->next;
     pointer2 = pointer2->next->next;
   }
   newCube->num = newNum;
-  newCube->prev = pointer2;
-  pointer2->next->prev = newCube;
-  newCube->next = pointer2->next;
-  pointer2->next = newCube;
+  newCube->prev = pointer1->prev;
+  pointer1->prev->next = newCube;
+  newCube->next = pointer1;
+  pointer1->prev = newCube;
+}
+
+//function to add cube to middle of list
+void removeMid() {
+  struct cube_list* pointer1 = head;
+  struct cube_list* pointer2 = head;
+  //find middle
+  while (pointer2 != NULL) {
+    pointer1 = pointer1->next;
+    pointer2 = pointer2->next->next;
+  }
+  cout<< "!!" << pointer1->num <<endl;
 }
 
 //function to print cube_list
@@ -93,15 +106,15 @@ void insertMidC(int newNum) {
   CubeList* pointer1 = headC;
   CubeList* pointer2 = headC;
   //find middle
-  while (pointer1 != NULL) {
+  while (pointer2 != NULL) {
     pointer1 = pointer1->next;
     pointer2 = pointer2->next->next;
   }
   newCube->num = newNum;
-  newCube->prev = pointer2;
-  pointer2->next->prev = newCube;
-  newCube->next = pointer2->next;
-  pointer2->next = newCube;
+  newCube->prev = pointer1->prev;
+  pointer1->prev->next = newCube;
+  newCube->next = pointer1;
+  pointer1->prev = newCube;
 }
 
 //function to print CubeList
@@ -113,8 +126,6 @@ void printC() {
   }
 }
 
-
-using namespace std;
 int main () {
    //a
    //struct
@@ -159,5 +170,14 @@ int main () {
    printC();
 
    //d
+   cout << "d" << endl;
+   //struct
+   insertMid(60*60);
+   print();
+   //class
+   insertMidC(60*60);
+   printC();
 
+   //e
+   removeMid();
 }
