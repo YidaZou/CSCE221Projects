@@ -37,7 +37,7 @@ void insertMid(int newNum) {
   struct cube_list* pointer1 = head;
   struct cube_list* pointer2 = head;
   //find middle
-  while (pointer2 != NULL) {
+  while (pointer2 != NULL && pointer2->next != NULL) {
     pointer1 = pointer1->next;
     pointer2 = pointer2->next->next;
   }
@@ -48,16 +48,18 @@ void insertMid(int newNum) {
   pointer1->prev = newCube;
 }
 
-//function to add cube to middle of list
+//function to remove cube from middle of list
 void removeMid() {
   struct cube_list* pointer1 = head;
   struct cube_list* pointer2 = head;
   //find middle
-  while (pointer2 != NULL) {
+  while (pointer2 != NULL && pointer2->next != NULL) {
     pointer1 = pointer1->next;
     pointer2 = pointer2->next->next;
   }
-  cout<< "!!" << pointer1->num <<endl;
+  pointer1->prev->next = pointer1->next;
+  pointer1->next->prev = pointer1->prev;
+  delete pointer1;
 }
 
 //function to print cube_list
@@ -106,7 +108,7 @@ void insertMidC(int newNum) {
   CubeList* pointer1 = headC;
   CubeList* pointer2 = headC;
   //find middle
-  while (pointer2 != NULL) {
+  while (pointer2 != NULL && pointer2->next != NULL) {
     pointer1 = pointer1->next;
     pointer2 = pointer2->next->next;
   }
@@ -115,6 +117,20 @@ void insertMidC(int newNum) {
   pointer1->prev->next = newCube;
   newCube->next = pointer1;
   pointer1->prev = newCube;
+}
+
+//function to remove cube from middle of list
+void removeMidC() {
+  CubeList* pointer1 = headC;
+  CubeList* pointer2 = headC;
+  //find middle
+  while (pointer2 != NULL && pointer2->next != NULL) {
+    pointer1 = pointer1->next;
+    pointer2 = pointer2->next->next;
+  }
+  pointer1->prev->next = pointer1->next;
+  pointer1->next->prev = pointer1->prev;
+  delete pointer1;
 }
 
 //function to print CubeList
@@ -172,12 +188,34 @@ int main () {
    //d
    cout << "d" << endl;
    //struct
-   insertMid(60*60);
+   insertMid(40*40);
    print();
    //class
-   insertMidC(60*60);
+   insertMidC(40*40);
    printC();
 
    //e
+   cout << "e" << endl;
+   //struct
    removeMid();
+   print();
+   //class
+   removeMidC();
+   printC();
+
+   //f
+   cout << "f" << endl;
+   //struct
+   struct cube_list* temp = head->next;
+   head->next = temp->next;
+   temp->next->prev = head;
+   delete temp;
+   print();
+   //class
+   CubeList* tempC = headC->next;
+   headC->next = tempC->next;
+   tempC->next->prev = headC;
+   delete tempC;
+   printC();
+
 }
