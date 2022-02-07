@@ -34,6 +34,73 @@ class NodeInfo
         NodeInfo* getParent();
         vector<NodeInfo> getChildren();
 };
+NodeInfo *head, *tail;
+
+string
+NodeInfo::getParentName()
+{
+    // Not needed in assignment 1
+}
+
+void
+NodeInfo::setParentName(string par_name)
+{
+    // Not needed in assignment 1
+}
+
+void
+NodeInfo::setParent(string par_name)
+{
+    // Not needed in assignment 1
+}
+
+void
+NodeInfo::setIfDir(string dir_str)
+{
+	/*
+	 * If it is a directory "dir", set is_dir to true
+	 * Otherwise, set is_dir to false
+	 * Study "this->"
+	 */
+  if(dir_str == "dir"){
+    is_dir = true;
+  }else{
+    is_dir = false;
+  }
+}
+
+void
+NodeInfo::setName(string name_str)
+{
+	/* Set name to name_str */
+  name = name_str;
+}
+
+bool
+NodeInfo::checkIfDir()
+{
+	/* Return the value of is_dir */
+  return is_dir;
+}
+
+string
+NodeInfo::getNodeName()
+{
+	/* Return the value of name */
+  return name;
+}
+
+NodeInfo*
+NodeInfo::getParent()
+{
+	// Not needed in assignment 1
+}
+
+vector<NodeInfo>
+NodeInfo::getChildren()
+{
+    // Not needed in assignment 1
+}
 
 void printList(NodeInfo *);
 void append(NodeInfo**, vector<string>);

@@ -1,24 +1,23 @@
 #include "NodeInfo.cpp"
+#include "print_list.cpp"
 
 int main() {
   fstream file;
-  file.open(test_case_1);
-  ifstream input_file(filename);
+  file.open("test_cases/test_case_1");
 
   if (!file.is_open()) {
-     cerr << "Could not open the file - '"
-          << filename << "'" << endl;
-     return EXIT_FAILURE;
+     cout << "not open" << endl;
+     return 1;
+  }
+  string line;
+  vector<string> inputs;
+  while (getline(file, line)){
+     inputs = tokenize_input_string(line);
+     append(inputs);
   }
 
-  while (getline(input_file, line)){
-     lines.push_back(line);
-  }
+  printList();
 
-  for (const auto &i : lines)
-     cout << i << endl;
-
-  input_file.close();
-  return EXIT_SUCCESS;
+  file.close();
   return 0;
 }
