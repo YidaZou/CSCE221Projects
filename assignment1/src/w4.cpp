@@ -82,7 +82,7 @@ CubeList *headC, *tailC;
 
 //function to add new cube at head
 void insertHeadC(int newNum) {
-  CubeList* newCube = (struct CubeList*)malloc(sizeof(struct CubeList));
+  CubeList* newCube = (CubeList*)malloc(sizeof(CubeList));
   newCube->num = newNum;
   newCube->prev = NULL;
   newCube->next = headC;
@@ -93,7 +93,7 @@ void insertHeadC(int newNum) {
 
 //function to add new cube at tail
 void insertTailC(int newNum) {
-  CubeList* newCube = (struct CubeList*)malloc(sizeof(struct CubeList));
+  CubeList* newCube = (CubeList*)malloc(sizeof(CubeList));
   newCube->num = newNum;
   newCube->prev = tailC;
   newCube->next = NULL;
@@ -104,7 +104,7 @@ void insertTailC(int newNum) {
 
 //function to add cube to middle of list
 void insertMidC(int newNum) {
-  CubeList* newCube = (struct CubeList*)malloc(sizeof(struct CubeList));
+  CubeList* newCube = (CubeList*)malloc(sizeof(CubeList));
   CubeList* pointer1 = headC;
   CubeList* pointer2 = headC;
   //find middle
@@ -157,8 +157,8 @@ int main () {
    }
    //class
    //initialize head and tail
-   tailC = (struct CubeList*)malloc(sizeof(struct CubeList));
-   headC = (struct CubeList*)malloc(sizeof(struct CubeList));
+   tailC = (CubeList*)malloc(sizeof(CubeList));
+   headC = (CubeList*)malloc(sizeof(CubeList));
    tailC->num = 30;
    tailC->prev = headC;
    tailC->next = NULL;

@@ -17,7 +17,7 @@ vector<string> tokenize_input_string(string line){
 
 void append(vector<string> strList){
   //making newNode and adding data from strList;
-  NodeInfo* newNode = (struct NodeInfo*)malloc(sizeof(struct NodeInfo));
+  NodeInfo* newNode = (NodeInfo*)malloc(sizeof(NodeInfo));
   newNode->setIfDir(strList.at(0));
   newNode->setName(strList.at(1));
   //newNode->setParent(strList.at(2));
