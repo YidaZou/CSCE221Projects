@@ -152,7 +152,7 @@ int main () {
    tail->prev = head;
    tail->next = NULL;
    head = tail;
-   for(unsigned long long i=29;i>0;i--){
+   for(int i=29;i>0;i--){
      insertHead(i);
    }
    //class
@@ -163,7 +163,7 @@ int main () {
    tailC->prev = headC;
    tailC->next = NULL;
    headC = tailC;
-   for(unsigned long long i=29;i>0;i--){
+   for(int i=29;i>0;i--){
      insertHeadC(i);
    }
 

@@ -7,21 +7,21 @@ int main () {
   //declaring pointer and allocating memory;
   unsigned long long *numbersPointer = (unsigned long long *)malloc(8*sizeof(unsigned long long));
   //assigning the numbers into the memory pointed to by the pointer
-  for(unsigned long long i=0; i<8; i++){
+  for(int i=0; i<8; i++){
     *(numbersPointer + i) = numbers[i];
   }
 
   //b
   cout << "b:" << endl;
   //printing the numbers
-  for(unsigned long long i=0; i<8; i++){
+  for(int i=0; i<8; i++){
     cout << *(numbersPointer + i) << endl;
   }
 
   //c
   cout << "c:" << endl;
   //printing the adresses of the numbers
-  for(unsigned long long i=0; i<8; i++){
+  for(int i=0; i<8; i++){
     cout << (numbersPointer + i) << endl;
   }
 

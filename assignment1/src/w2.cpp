@@ -8,14 +8,14 @@ int main () {
 
    //b
    cout << "b:" << endl;
-   for(unsigned long long i=7; i>=0; i--){
+   for(int i=7; i>=0; i--){
      //printing numbers in reverse
      cout << numbers[i] << endl;
    }
 
    //c
    cout << "c:" << endl;
-   for(unsigned long long i=7; i>=0; i--){
+   for(int i=0; i<8; i++){
      //printing addresses in reverse
      cout << &numbers[i] << endl;
    }
