@@ -12,7 +12,7 @@ int rear = -1;
 bool isempty()
 {
 //YOUR CODE HERE
-if(front = -1 && rear =-1){
+if(front == -1 && rear == -1){
   return true;
 }
 return false;
@@ -23,6 +23,16 @@ return false;
 void enqueue (int value)
 {
 //YOUR CODE HERE
+if(rear == SIZE-1){
+  cout << "Queue is full" << endl;
+  return;
+}
+rear++;
+A[rear] = value;
+if(front == -1){
+  front = 0;
+}
+
 }
 
 
@@ -30,6 +40,14 @@ void enqueue (int value)
 void dequeue ( )
 {
 //YOUR CODE HERE
+if(front == -1){
+  cout << "Queue is empty" << endl;
+  return;
+}
+front++;
+if(front > rear){
+  front = rear = -1;
+}
 }
 
 
@@ -37,6 +55,7 @@ void dequeue ( )
 void showfront()
 {
 //YOUR CODE HERE
+cout << A[front] << endl;
 }
 
 
@@ -44,6 +63,10 @@ void showfront()
 void displayQueue()
 {
 //YOUR CODE HERE
+for(int i=front; i<=rear; i++){
+  cout << A[i] << " ";
+}
+cout << endl;
 }
 
 int main()
