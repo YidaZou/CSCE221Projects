@@ -3,14 +3,14 @@ using namespace std;
 
 //cube_list struct
 struct cube_list {
-  int num;
+  unsigned long long num;
   cube_list *prev;
   cube_list *next;
 };
 struct cube_list *head, *tail; //head and tail for struct
 
 //function to add new cube at head
-void insertHead(int newNum) {
+void insertHead(unsigned long long newNum) {
   struct cube_list* newCube = (struct cube_list*)malloc(sizeof(struct cube_list));
   newCube->num = newNum;
   newCube->prev = NULL;
@@ -21,7 +21,7 @@ void insertHead(int newNum) {
 }
 
 //function to add new cube at tail
-void insertTail(int newNum) {
+void insertTail(unsigned long long newNum) {
   struct cube_list* newCube = (struct cube_list*)malloc(sizeof(struct cube_list));
   newCube->num = newNum;
   newCube->prev = tail;
@@ -32,7 +32,7 @@ void insertTail(int newNum) {
 }
 
 //function to add cube to middle of list
-void insertMid(int newNum) {
+void insertMid(unsigned long long newNum) {
   struct cube_list* newCube = (struct cube_list*)malloc(sizeof(struct cube_list));
   struct cube_list* pointer1 = head;
   struct cube_list* pointer2 = head;
@@ -74,14 +74,14 @@ void print() {
 //CubeList class
 class CubeList {
   public:
-    int num;
+    unsigned long long num;
     CubeList *next;
 		CubeList *prev;
 };
 CubeList *headC, *tailC;
 
 //function to add new cube at head
-void insertHeadC(int newNum) {
+void insertHeadC(unsigned long long newNum) {
   CubeList* newCube = (CubeList*)malloc(sizeof(CubeList));
   newCube->num = newNum;
   newCube->prev = NULL;
@@ -92,7 +92,7 @@ void insertHeadC(int newNum) {
 }
 
 //function to add new cube at tail
-void insertTailC(int newNum) {
+void insertTailC(unsigned long long newNum) {
   CubeList* newCube = (CubeList*)malloc(sizeof(CubeList));
   newCube->num = newNum;
   newCube->prev = tailC;
@@ -103,7 +103,7 @@ void insertTailC(int newNum) {
 }
 
 //function to add cube to middle of list
-void insertMidC(int newNum) {
+void insertMidC(unsigned long long newNum) {
   CubeList* newCube = (CubeList*)malloc(sizeof(CubeList));
   CubeList* pointer1 = headC;
   CubeList* pointer2 = headC;
@@ -152,7 +152,7 @@ int main () {
    tail->prev = head;
    tail->next = NULL;
    head = tail;
-   for(int i=29;i>0;i--){
+   for(unsigned long long i=29;i>0;i--){
      insertHead(i);
    }
    //class
@@ -163,7 +163,7 @@ int main () {
    tailC->prev = headC;
    tailC->next = NULL;
    headC = tailC;
-   for(int i=29;i>0;i--){
+   for(unsigned long long i=29;i>0;i--){
      insertHeadC(i);
    }
 

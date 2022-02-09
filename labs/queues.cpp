@@ -23,14 +23,15 @@ return false;
 void enqueue (int value)
 {
 //YOUR CODE HERE
-if(rear == SIZE-1){
+if(rear-front < 4){
+  rear++;
+  A[rear] = value;
+  if(front == -1){
+    front = 0;
+  }
+}else{
   cout << "Queue is full" << endl;
   return;
-}
-rear++;
-A[rear] = value;
-if(front == -1){
-  front = 0;
 }
 
 }
@@ -63,6 +64,10 @@ cout << A[front] << endl;
 void displayQueue()
 {
 //YOUR CODE HERE
+if(front == -1 && rear == -1){
+  cout << "Queue is empty" << endl;
+  return;
+}
 for(int i=front; i<=rear; i++){
   cout << A[i] << " ";
 }
@@ -96,7 +101,13 @@ int main()
  displayQueue();
  dequeue();
  displayQueue();
- dequeue();
+ //dequeue();
+ //displayQueue();
+
+ enqueue(2);
+ displayQueue();
+ enqueue(3);
+ displayQueue();
 
  return 0;
 }
