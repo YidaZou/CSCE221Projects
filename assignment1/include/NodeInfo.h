@@ -102,8 +102,8 @@ NodeInfo::getChildren()
     // Not needed in assignment 1
 }
 
-void printList(NodeInfo *);
-void append(NodeInfo**, vector<string>);
+void printList();
+void append(vector<string>);
 vector<string> tokenize_input_string(string);
 
 #endif
