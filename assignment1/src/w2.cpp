@@ -16,7 +16,7 @@ int main () {
    //c
    cout << "c:" << endl;
    for(int i=0; i<8; i++){
-     //printing addresses in reverse
+     //printing addresses in normal order
      cout << &numbers[i] << endl;
    }
    //d
