@@ -20,6 +20,6 @@ int main () {
      cout << &numbers[i] << endl;
    }
    //d
-   //you can't add a 9th element to the array
+   //you can't add a 9th element to the array. The compiler gives an error that the index is past the end of the array.
    return 0;
 }
