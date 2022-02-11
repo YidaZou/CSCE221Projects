@@ -4,7 +4,7 @@
 vector<string> tokenize_input_string(string line){
   vector<string> inputs; //vector to store inputs
   string temp; //temp string for each input
-  for(int i=0; i<line.size(); i++){
+  for(unsigned int i=0; i<line.size(); i++){
     //detects separate string to add to inputs vector
     if(line[i] == ' '){
       inputs.push_back(temp); //adds temp to inputs vector

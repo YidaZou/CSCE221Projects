@@ -14,7 +14,7 @@ int main () {
    numbers.push_back(9000);
    numbers.push_back(7000);
    //printing vector
-   for(int i=0; i<numbers.size(); i++){
+   for(unsigned int i=0; i<numbers.size(); i++){
      cout << numbers.at(i) << endl;
    }
 
@@ -26,7 +26,7 @@ int main () {
    numbers.pop_back();
    numbers.pop_back();
    //printing vector
-   for(int i=0; i<numbers.size(); i++){
+   for(unsigned int i=0; i<numbers.size(); i++){
      cout << numbers.at(i) << endl;
    }
 
@@ -38,7 +38,7 @@ int main () {
    //inserting a number into beginning of vector
    numbers.insert(numbers.begin(), 89748);
    //printing vector
-   for(int i=0; i<numbers.size(); i++){
+   for(unsigned int i=0; i<numbers.size(); i++){
      cout << numbers.at(i) << endl;
    }
 
@@ -47,7 +47,7 @@ int main () {
    //emplace doesn't produce a copy of object
    numbers.emplace(numbers.begin(), 50000);
    //printing vector
-   for(int i=0; i<numbers.size(); i++){
+   for(unsigned int i=0; i<numbers.size(); i++){
      cout << numbers.at(i) << endl;
    }
 
@@ -57,7 +57,7 @@ int main () {
    numbers.emplace_back(78);
    cout << "g" << endl;
    //printing vector
-   for(int i=0; i<numbers.size(); i++){
+   for(unsigned int i=0; i<numbers.size(); i++){
      cout << numbers.at(i) << endl;
    }
 
@@ -68,7 +68,7 @@ int main () {
    numbers.pop_back();
    cout << "h" << endl;
    //printing vector
-   for(int i=0; i<numbers.size(); i++){
+   for(unsigned int i=0; i<numbers.size(); i++){
      cout << numbers.at(i) << endl;
    }
    return 0;
