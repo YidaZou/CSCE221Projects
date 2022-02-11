@@ -1,40 +1,34 @@
 CXX=g++
 IDIR=$(PWD)/include
+ODIR=$(PWD)/obj
+SDIR=$(PWD)/src
 CXXFLAGS=-O3 -std=c++11 -Wall -Werror -g -I$(IDIR)
 
-
-all: ./obj/w1.out ./obj/w2.out ./obj/w3.out ./obj/w4.out ./obj/nodeinfo.out ./obj/printlist.out
-
-./obj/w1.out: ./obj/w1.o
+all: $(ODIR)/w1.out $(ODIR)/w2.out $(ODIR)/w3.out $(ODIR)/w4.out $(ODIR)/nodeinfo.out
+$(ODIR)/w1.out: $(ODIR)/w1.o
 	$(CXX) $(CXXFLAGS) -o $@ $^
-./obj/w1.o: ./src/w1.cpp
+$(ODIR)/w1.o: $(SDIR)/w1.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-./obj/w2.out: ./obj/w2.o
+$(ODIR)/w2.out: $(ODIR)/w2.o
 	$(CXX) $(CXXFLAGS) -o $@ $^
-./obj/w2.o: ./src/w2.cpp
+$(ODIR)/w2.o: $(SDIR)/w2.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-./obj/w3.out: ./obj/w3.o
+$(ODIR)/w3.out: $(ODIR)/w3.o
 	$(CXX) $(CXXFLAGS) -o $@ $^
-./obj/w3.o: ./src/w3.cpp
+$(ODIR)/w3.o: $(SDIR)/w3.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-./obj/w4.out: ./obj/w4.o
+$(ODIR)/w4.out: $(ODIR)/w4.o
 	$(CXX) $(CXXFLAGS) -o $@ $^
-./obj/w4.o: ./src/w4.cpp
+$(ODIR)/w4.o: $(SDIR)/w4.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-./obj/nodeinfo.out: ./obj/nodeinfo.o
+$(ODIR)/nodeinfo.out: $(ODIR)/nodeinfo.o
 	$(CXX) $(CXXFLAGS) -o $@ $^
-./obj/nodeinfo.o: ./src/NodeInfo.cpp
+$(ODIR)/nodeinfo.o: $(SDIR)/NodeInfo.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
-
-./obj/printlist.out: ./obj/printlist.o
-	$(CXX) $(CXXFLAGS) -o $@ $^
-./obj/printlist.o: ./src/PrintList.cpp
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
-
 
 .PHONY: clean
 clean:

@@ -1,4 +1,5 @@
 #include "NodeInfo.h"
+#include "print_list.cpp"
 
 vector<string> tokenize_input_string(string line){
   vector<string> inputs; //vector to store inputs
@@ -29,4 +30,8 @@ void append(vector<string> strList){
     newNode->parent = tail;
     tail = newNode;
   }
+}
+
+int main(){
+  return 0;
 }

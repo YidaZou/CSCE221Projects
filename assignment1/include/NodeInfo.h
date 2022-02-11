@@ -35,7 +35,7 @@ class NodeInfo
         vector<NodeInfo> getChildren();
 };
 NodeInfo *head, *tail;
-
+/*
 string
 NodeInfo::getParentName()
 {
@@ -53,7 +53,7 @@ NodeInfo::setParent(string par_name)
 {
     // Not needed in assignment 1
 }
-
+*/
 void
 NodeInfo::setIfDir(string dir_str)
 {
@@ -89,7 +89,7 @@ NodeInfo::getNodeName()
 	/* Return the value of name */
   return name;
 }
-
+/*
 NodeInfo*
 NodeInfo::getParent()
 {
@@ -101,7 +101,7 @@ NodeInfo::getChildren()
 {
     // Not needed in assignment 1
 }
-
+*/
 void printList();
 void append(vector<string>);
 vector<string> tokenize_input_string(string);
