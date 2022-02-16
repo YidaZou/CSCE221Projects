@@ -77,6 +77,7 @@ cout << endl;
 int main()
 {
  cout<<"Inserting elements in queue\n";
+ cout << sizeof(A) << endl;
  enqueue(2);
  displayQueue();
  enqueue(3);
@@ -108,6 +109,7 @@ int main()
  displayQueue();
  enqueue(3);
  displayQueue();
+ cout << sizeof(A) << endl;
 
  return 0;
 }
