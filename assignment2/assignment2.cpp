@@ -1,5 +1,8 @@
+#include <time.h>
+#include <sys/time.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include <iostream>
-#include <vector>
 using namespace std;
 
 //linked list
@@ -42,47 +45,7 @@ void printVector(vector<int> v){
   cout<<endl;
 }
 
-//2) pointer sorts
-void pointerAscendingInsertionSort(int* p) {
-  int temp;
-  for(int i=1; i<300; i++){//loop through all elements staring from position 1;
-    for(int j=i; j>0 && *(p+(j-1))>*(p+j); j--){//for sorted portion
-      //shifting selected element to the left while pushing others to the right.
-      temp = *(p+j);
-      *(p+j) = *(p+(j-1));
-      *(p+(j-1)) = temp;
-    }
-  }
-}
-
-//3) vector sorts
-void vectorDescendingSelectionSort(vector<int> *v){
-  int maxIndex;
-  for(int i=0; i<300-1; i++){
-    maxIndex = i;
-    for(int j=i+1; j<300; j++){
-      if(v->at(maxIndex) < v->at(j)){//finding the biggest unsorted element
-        maxIndex = j;
-      }
-    }
-    swap(v->at(i), v->at(maxIndex));//placing element into sorted portion
-  }
-}
-void vectorDescendingBubbleSort(vector<int> *v){
-  bool swapped = 1; //check if a swap has been made
-  while (swapped){
-    swapped = 0;
-    for(int i=0; i<300-1; i++){
-      if(v->at(i) > v->at(i+1)){
-        swap(v->at(i), v->at(i+1));
-        swapped = 1;
-      }
-    }
-  }
-}
-
 int main() {
-  //1
   //linked list //initializing head & tail
   tail = (struct numbersNode*)malloc(sizeof(struct numbersNode));
   head = (struct numbersNode*)malloc(sizeof(struct numbersNode));
@@ -113,23 +76,5 @@ int main() {
   printPointer(numbersPointer);
   printVector(numbersVector);
   printNodes();
-  //making copies of datatypes to sort
-  int *sortedPointer1 = (int*)malloc(300*sizeof(int));
-  int *sortedPointer2 = (int*)malloc(300*sizeof(int));
-  memcpy(sortedPointer1, numbersPointer, 300*sizeof(int));
-  memcpy(sortedPointer2, numbersPointer, 300*sizeof(int));
-
-  //2
-  pointerAscendingInsertionSort(sortedPointer1);
-  printPointer(sortedPointer1);
-  printPointer(numbersPointer);
-
-  //3
-  /*
-  vectorDescendingSelectionSort(&numbersVector);
-  printVector(numbersVector);
-  vectorDescendingSelectionSort(&numbersVector);
-  printVector(numbersVector);
-  */
   return 0;
 }
