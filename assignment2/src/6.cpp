@@ -57,6 +57,8 @@ int main() {
 
   gettimeofday(&end, NULL);
   printf("%ld\n", ((end.tv_sec * 1000000 + end.tv_usec) - (start.tv_sec * 1000000 + start.tv_usec)));
+  //Vector
+  /*
   //3a
   gettimeofday(&start, NULL);
 
@@ -71,6 +73,7 @@ int main() {
 
   gettimeofday(&end, NULL);
   printf("%ld\n", ((end.tv_sec * 1000000 + end.tv_usec) - (start.tv_sec * 1000000 + start.tv_usec)));
+  */
   //4a
   gettimeofday(&start, NULL);
 
