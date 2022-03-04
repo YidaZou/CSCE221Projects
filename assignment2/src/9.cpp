@@ -81,7 +81,7 @@ bool isEmptyQ(){
 
 
 
-//EDIT THE ARRAy BELOW WITH YOUR OPERANDS {none, a, b, c, d, e, acc}
+//EDIT THE ARRAY BELOW WITH YOUR OPERANDS {none, a, b, c, d, e, acc}
 unsigned long long int operands[] = {0, 55, 20, 276, 100, 203, 0};
 
 unsigned long long int opcodes[] = {0x601, 0x602, 0x604, 0x504, 0x502, 0x442, 0x603, 0x536, 0x605, 0x603, 0x503, 0x505, 0x335, 0x601, 0x516};
