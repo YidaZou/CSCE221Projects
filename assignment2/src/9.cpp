@@ -160,7 +160,8 @@ int main() {
     operand(num);
     }
   for(unsigned long long int i=0; i<7; i++){
-    cout << "Operand" << i << " " << operands[i] << endl;
+    cout << "Operand" << i << " " << operands[i] << " ";
   }
+  cout << endl;
   return 0;
 }
