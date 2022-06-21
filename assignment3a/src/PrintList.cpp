@@ -6,9 +6,9 @@
 /*
  * This function prints contents of the linked list
  */
-void printList()
+void printList(NodeInfo* ptr)
 {
-  NodeInfo* pointer = head; //start pointer at head
+  NodeInfo* pointer = ptr; //start pointer at head
   while(pointer != NULL) {  //while pointer points to a node
     cout << pointer->getNodeName() << " " << pointer->checkIfDir() << endl;
     pointer = pointer->next;

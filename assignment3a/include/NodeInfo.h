@@ -10,6 +10,7 @@
 #include <iterator>
 #include <algorithm>
 #include <queue>
+#include <cstring>
 //#include <bits/stdc++.h>
 
 #define PRINTLIST 0
@@ -35,6 +36,7 @@ class NodeInfo
         bool checkIfDir();
         string getNodeName();
         string getParentName();
+        NodeInfo *nextDir; //for list of directories
         //NodeInfo* getParent(); // Will need to use this if parent is private
 		//void addChild(NodeInfo *); // Will need to use this if children is private
         //vector<NodeInfo *> getChildren(); // Will need to use this if children is private
@@ -48,7 +50,7 @@ inline string
 NodeInfo::getParentName()
 {
     // should return current object's p_name
-    return parent->name;
+    return p_name;
 }
 
 inline void
@@ -63,7 +65,7 @@ inline void
 NodeInfo::setParentName(string par_name)
 {
     // should set current object's p_name to par_name
-    parent->name = par_name;
+    p_name = par_name;
 }
 /*
 inline void

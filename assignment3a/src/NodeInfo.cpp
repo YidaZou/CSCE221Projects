@@ -33,70 +33,60 @@ tokenize_input_string(string line)
 void
 append(vector<string> new_data)
 {
-  //making newNode and adding data from strList;
-  NodeInfo* newNode = (NodeInfo*)malloc(sizeof(NodeInfo));
+  //making newNode and adding data from new_data;
+  NodeInfo* newNode = new NodeInfo;	//create a new node
   newNode->setIfDir(new_data.at(0));
   newNode->setName(new_data.at(1));
-  //newNode->setParent(strList.at(2));
-  if(head == NULL && tail == NULL){ //if list is empty
-    head = newNode;
-    tail = head;
-  }else{  //addes newNode to tail of list
+  newNode->setParentName(new_data.at(2));
+  if((head != NULL) && (tail != NULL)){
+    //append to tail
     tail->next = newNode;
-    newNode->parent = tail;
     tail = newNode;
     tail->next = NULL;
+  }else{  //if list is empty
+    head = newNode;
+    head->next = NULL;
+    tail = head;
   }
 }
 
+void makeTree() {
+  NodeInfo* ptr = head; //ptr to find parent
+  NodeInfo* node = head->next;
+  while(node!=NULL){
+    while(ptr != NULL){ //looping through list to find parents
+      if(ptr->getNodeName() == node->getParentName()){
+        node->parent = ptr;
+        //add node to parent’s vector of children
+        ptr->children.push_back(node);
+      }
+      ptr = ptr->next;
+    }
+    node = node->next;
+    ptr = head; //reset ptr;
+  }
+}
 #define MAXLNSZ 256
-/*
- * In my approach, I split the linked list into a directory list and a file list.
- * If you use a different approach, you can remove this function.
-void
-split_into_lists(NodeInfo *tree_node)
-{
-}
-*/
-
-/* Here I create sub-trees with directory as the parent, and files as the children.
- * If you use a different approach, you can remove this function.
-void
-create_subtrees()
-{
-	// Here, I traverse the directory and file lists, and add the files to the directories
-}
- */
 
 void
-printTree(NodeInfo *dir_node)
+printTree(NodeInfo* nodeRef)
 {
-	// I do BF Traversal here using STL queue.
-	// get the first element from the queue, and push all the children into the queue.
-	// print the popped element for printing in BF traversal
-	// https://en.cppreference.com/w/cpp/container/queue
-	queue<NodeInfo *> q;
-
-        //cout << u->getNodeName() << " "; // Prints the popped element (the one in the front)
-	//cout << endl;
-}
-
-void
-nullify_seq()
-{
-	// Set the next pointer that we used in order to create the linked list in assignment 1 to NULL.
-	// No matter what strategy to use, at the end of 3a, the only pointers that need to have an
-	// address associated with them are parent and children nodes.
-}
-
-void
-create_tree()
-{
-	/*
-	 * I create my tree using the directory list. I create parent-children relationships
-	 * between directories here. Here, I need the next pointer to traverse the list.
-	 */
-	nullify_seq(); // After the use of the next pointer is served, I set all next pointers to NULL.
+  queue<NodeInfo *> q;  //queue for BF traversal
+  q.push(nodeRef); // push nodeRef (head of tree) into queue
+  while(!q.empty()){
+    int n = q.size();
+    while(n>0){
+      //Pop node and print it;
+      NodeInfo* node = q.front();
+      q.pop();
+      cout << node->getNodeName() << " ";
+      //Push the children of the node that was popped and printed
+      for(unsigned int i=0; i<node->children.size(); i++){
+        q.push(node->children[i]);
+      }
+      n--;
+    }
+  }
 }
 
 int
@@ -121,15 +111,14 @@ main(int argc, char **argv)
              << files << "'" << endl;
         return EXIT_FAILURE;
     }
-
     while (getline(input_file, line))
     {
         lines.push_back(line);
         words = tokenize_input_string(line);
         append(words);
     }
-    //cout<< "test" << endl;
-    printList();
+    makeTree();
+    printTree(head);
 	//split_into_lists(tree_node); // Used in my way of creating the tree
 	//create_subtrees(); // Used in my way of creating the tree
   /*
